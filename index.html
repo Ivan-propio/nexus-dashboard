@@ -1,21 +1,83 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr" class="h-full">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexus Dashboard</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{min-height:100vh;background:#1a0a2e;display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#fff}
-.center{text-align:center}
-.center h1{font-size:2.5rem;margin-bottom:12px;background:linear-gradient(135deg,#7c5cfc,#b366ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.center p{color:#888;font-size:1rem}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        headline: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        "primary": "#3755c3",
+                        "primary-dim": "#2848b7",
+                        "primary-container": "#dde1ff",
+                        "on-primary": "#f8f7ff",
+                        "on-primary-container": "#2747b6",
+                        "secondary": "#526074",
+                        "secondary-container": "#d5e3fc",
+                        "on-secondary": "#f8f8ff",
+                        "on-secondary-container": "#455367",
+                        "tertiary": "#625b77",
+                        "tertiary-container": "#dfd5f7",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f0f4f7",
+                        "surface-container": "#e8eff3",
+                        "surface-container-high": "#e1e9ee",
+                        "surface-container-highest": "#d9e4ea",
+                        "on-surface": "#2a3439",
+                        "on-surface-variant": "#566166",
+                        "outline": "#717c82",
+                        "outline-variant": "#a9b4b9",
+                        "error": "#9f403d",
+                        "error-container": "#fe8983",
+                        "on-error": "#fff7f6",
+                        "on-error-container": "#752121",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-<div class="center">
-<h1>Nexus Dashboard</h1>
-<p>Coming soon...</p>
-</div>
+<body class="h-full bg-surface font-body text-on-surface antialiased">
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="hidden"></div>
+
+    <!-- App Shell -->
+    <div id="app-shell" class="hidden h-full">
+        <aside id="sidebar-container"></aside>
+        <div id="topbar-container"></div>
+        <main id="page-content" class="ml-64 pt-16 min-h-screen p-6"></main>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[100] flex flex-col gap-2"></div>
+
+    <!-- Modal Container -->
+    <div id="modal-overlay" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+        <div id="modal-content" class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto overflow-x-hidden"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+
+    <script type="module" src="js/app.js?v=20260618-9"></script>
 </body>
 </html>
